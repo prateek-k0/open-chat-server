@@ -9,7 +9,7 @@ const  { registerWebSocket } = require("./src/utils/messages/registerWebSocket")
 const { userRouter } = require('./src/utils/users/userRouter');
 
 // for mongoose
-mongoose.connect("mongodb://localhost:27017/chatdb", () => {
+mongoose.connect(process.env.MONGODB_API ?? 'mongodb://localhost:27017/chatdb', () => {
   console.log('connected to chatdb');
 }, (err) => {
   console.log('failed to connect', err);
